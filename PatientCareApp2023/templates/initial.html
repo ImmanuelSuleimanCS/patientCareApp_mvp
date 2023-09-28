@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initial Patient Intake</title>
+</head>
+<body>
+
+<h1>Initial Patient Intake</h1>
+
+<form action="{{ url_for('initial') }}" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="admit_date">Admit Date:</label><br>
+    <input type="date" id="admit_date" name="admit_date"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{{ url_for('index') }}">Back to Landing Page</a>
+
+</body>
+</html>

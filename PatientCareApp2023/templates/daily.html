@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Patient Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        label, select, textarea, input {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Daily Patient Info</h1>
+
+<form action="{{ url_for('daily') }}" method="post">
+    <label for="patient_id">Select Patient:</label>
+    <select name="patient_id" id="patient_id">
+        {% for patient in patients %}
+            <option value="{{ patient.id }}">{{ patient.name }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="vital_signs">Vital Signs:</label>
+    <input type="text" id="vital_signs" name="vital_signs">
+
+    <label for="medications">Medications:</label>
+    <input type="text" id="medications" name="medications">
+
+    <label for="needs">Needs:</label>
+    <input type="text" id="needs" name="needs">
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<a href="{{ url_for('index') }}">Back to Landing Page</a>
+
+</body>
+</html>
